@@ -10,3 +10,5 @@ for numbers in a:
             new_list.append(numbers)
 
 print(new_list)
+
+#EndOfFile
