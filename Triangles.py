@@ -1,5 +1,5 @@
-# Alright so in this excercise we need to do the following.
-# Identify the type of triangle based in the angles provided by the user.
+#This code asks the user for three angles, and then checks if they create a triangle, if they do the code will print out
+#what kind of triangle it is.
 while 3 > 2:
     angle1 = int(input("Insert the value of the first angle: "))
     angle2 = int(input("Insert the value of the second angle: "))
@@ -17,3 +17,4 @@ while 3 > 2:
     endLoop = input("Do you wish to try again? Y = yes, N = No: ")
     if endLoop == "N" or endLoop == "n":
         break
+#EndOfFile
