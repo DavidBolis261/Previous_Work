@@ -1,16 +1,11 @@
 import random
 
 
-# In this tutorial we will show you how to Create a guessing Game.
-# Rules of the game
-# 1. Users get 3 lives and then the program ends.
-# 2. The game has three Levels.
-# level1 = 0 - 10
-# level2 = 0 - 20
-# level3 = 0 - 30
+#Generates a random Number, and asks the user to guess what the Number is. I made two versions of the game. 
+#Note: The first version was not entirely mine as I used some pieces of the code from someone else.
 
 
-
+#First Version
 n = random.randint(1, 99)
 guess = int(input("Enter an integer from 1 to 100: "))
 while n != "guess":
@@ -24,7 +19,7 @@ while n != "guess":
         print("you guessed it!")
         break
 
-
+#Second Version
 # Range = 1
 # level = 1
 # life = 3
@@ -55,6 +50,9 @@ while n != "guess":
 #         break
 #
 #     print("This is Level 3")
+
+
+#EngOfFile
 #     guess3 = int(input("Enter your guess: "))
 #     if guess3 == randomNumber:
 #         print("Congrats! You just finished the whole game")
