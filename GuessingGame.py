@@ -50,9 +50,7 @@ while n != "guess":
 #         break
 #
 #     print("This is Level 3")
-
-
-#EngOfFile
+#    
 #     guess3 = int(input("Enter your guess: "))
 #     if guess3 == randomNumber:
 #         print("Congrats! You just finished the whole game")
@@ -63,3 +61,6 @@ while n != "guess":
 #     if life == 0:
 #         print("Game Over!")
 #         break
+
+
+#EngOfFile
