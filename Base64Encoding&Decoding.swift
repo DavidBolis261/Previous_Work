@@ -20,3 +20,6 @@ func fromBase64(word: String) -> String{
 }
 
 print("-> ",fromBase64(word: "RGF2aWQsIEJhc2U2NA=="))
+
+
+//End OF File
