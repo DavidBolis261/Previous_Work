@@ -7,19 +7,21 @@ func toBase64(word: String) -> String{
     return base64Encoded
 }
 
-print("-> ",toBase64(word: "David, Base64"))
+
+let theword = toBase64(word: "David, Base64")
 
 
 
-
-func fromBase64(word: String) -> String{
+func fromBase64(word: String)  -> String{
     let base64Decoded = Data(base64Encoded: word)!
     let decodedString = String(data: base64Decoded, encoding: .utf8)!
+   
     
     return decodedString
 }
 
-print("-> ",fromBase64(word: "RGF2aWQsIEJhc2U2NA=="))
+print("-> \(theword)")
+print("-> \(fromBase64(word: theword))")
 
 
-//End OF File
+
