@@ -17,14 +17,10 @@ class ViewController: UIViewController, NFCNDEFReaderSessionDelegate {
     
     @IBOutlet weak var themess: UITextView!
     
-    @IBAction func BtnG(_ sender: Any) {
-        performSegue(withIdentifier: "TOButtonPg", sender: self)
-    }
-    @IBAction func thirdpg(_ sender: Any) {
-        performSegue(withIdentifier: "ToAnoView", sender: self)
-    }
+   
+   
     var nfcSession: NFCNDEFReaderSession?
-    var word = "None"
+    
     
     @IBAction func ScanPressed(_ sender: Any) {
         nfcSession = NFCNDEFReaderSession.init(delegate: self, queue: nil, invalidateAfterFirstRead: true)
@@ -60,19 +56,9 @@ class ViewController: UIViewController, NFCNDEFReaderSessionDelegate {
         
         
     }
-    func getReady() -> String{
-        self.themess.text = "David"
-        return self.themess.text
-    }
+ 
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "TOButtonPg"{
-            let vc = segue.destination as! sViewController
-            vc.omd = self.themess.text
-        } else if segue.identifier == "ToAnoView"{
-            let vc = segue.destination as! tViewController
-            vc.Textlong = self.themess.text
-        }
+   
         
         
         
