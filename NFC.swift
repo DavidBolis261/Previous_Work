@@ -1,10 +1,4 @@
-//
-//  ViewController.swift
-//  NFCAPPTEST3
-//
-//  Created by RnD Taggle on 23/10/19.
-//  Copyright © 2019 RnD Taggle. All rights reserved.
-//  This file recieves the NDF Data from a file called TestModel.swift. Which has a class called modely
+
 
 import UIKit
 import CoreNFC // Import This In Order To Work With NFC.
