@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 8px;
+      background: transparent;
+      font-family: Inter, sans-serif;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    select, input[type="number"], input[type="color"] {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      padding: 4px 6px;
+      font-size: 12px;
+    }
+
+    .text-area {
+      width: 100%;
+      height: 420px;              /* scroll area height */
+      resize: none;               /* keep it clean */
+      outline: none;
+      border: none;
+      background: transparent;
+      padding: 2px 0;
+
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #000;
+      caret-color: #1a73e8;
+
+      overflow-y: auto;
+      scrollbar-width: thin;      /* Firefox */
+    }
+
+    .text-area::placeholder {
+      color: rgba(0,0,0,0.35);
+    }
+
+    /* Subtle focus feel without a box */
+    .text-area:focus {
+      text-shadow: 0 0 0.01px rgba(0,0,0,0.5);
+    }
+
+    /* Webkit scrollbar (Chrome/Safari/Edge) */
+    .text-area::-webkit-scrollbar {
+      width: 8px;
+    }
+    .text-area::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.06);
+      border-radius: 10px;
+    }
+    .text-area::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.18);
+      border-radius: 10px;
+    }
+    .text-area::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.28);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <select id="fontFamily">
+      <option value="Inter" selected>Inter</option>
+      <option value="Poppins">Poppins</option>
+      <option value="Playfair Display">Playfair</option>
+      <option value="Arial">Arial</option>
+      <option value="Georgia">Georgia</option>
+    </select>
+
+    <select id="fontWeight">
+      <option value="300">Light</option>
+      <option value="400" selected>Regular</option>
+      <option value="600">Semi-Bold</option>
+      <option value="700">Bold</option>
+    </select>
+
+    <input id="fontSize" type="number" min="12" max="48" value="18" />
+
+    <input id="lineHeight" type="number" step="0.1" min="1" max="2.5" value="1.5" />
+
+    <input id="colorPicker" type="color" value="#000000" />
+  </div>
+
+  <!-- Long Text Box -->
+  <textarea
+    id="bodyInput"
+    class="text-area"
+    placeholder="Write your message…"
+  ></textarea>
+
+  <script>
+    const bodyInput = document.getElementById('bodyInput');
+
+    document.getElementById('fontFamily').onchange = e =>
+      bodyInput.style.fontFamily = e.target.value;
+
+    document.getElementById('fontWeight').onchange = e =>
+      bodyInput.style.fontWeight = e.target.value;
+
+    document.getElementById('fontSize').oninput = e =>
+      bodyInput.style.fontSize = e.target.value + 'px';
+
+    document.getElementById('lineHeight').oninput = e =>
+      bodyInput.style.lineHeight = e.target.value;
+
+    document.getElementById('colorPicker').oninput = e =>
+      bodyInput.style.color = e.target.value;
+
+    // Send value + styles back to Wix
+    bodyInput.addEventListener('input', () => {
+      window.parent.postMessage({
+        body: bodyInput.value,
+        styles: bodyInput.style.cssText
+      }, '*');
+    });
+  </script>
+
+</body>
+</html>
